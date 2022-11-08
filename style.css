@@ -1,32 +1,41 @@
-.img{
-    display: block;
-    margin: 0 auto;
+body{
+    background-color: rgb(130, 216, 223);
+    color: rgb(145, 65, 219);
 }
-input[type="text"]{
-    display: block;
-}
+
+
 input[type="submit"]{
     display: block;
     margin-top: 10px;
+    color: white;
+    border: 2px solid white;
+    background-color: rgb(145, 65, 219);
+    box-shadow: 2px 2px 2px black;
 }
+
 table thead tr{
-    background: #88cfeb;
-    color: rgb(255, 255, 255);
-    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(172, 104, 172);
+    color: purple;
+    font-family: Georgia;;
 }
+
 table thead tr th{
     padding: 10px;
 }
+
 table tbody tr{
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Georgia;
 }
 table tbody tr:nth-child(2n+1){
-    background: #c29af1;
+    background: plum;
 }
 table tbody tr:nth-child(2n){
-    background: #fae7ff;
+    background: rgb(185, 146, 185);
 }
-body{
-    background-color: rgb(221, 183, 251);
+button{
+    display: inline-block;
+    margin-right: auto;
+    margin-left: 700px;
+    margin-bottom: 10px;
 }

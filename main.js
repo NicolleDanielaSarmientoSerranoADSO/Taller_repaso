@@ -1,30 +1,43 @@
-addEventListener("DOMContentLoaded", (e) => {
-    let N = document.querySelector("#N")
-    let resultado = ""
-    let form = document.querySelector("#form")
-    let suma = 0
-    let sobr = document.querySelector("#resultados")
+addEventListener("DOMContentLoaded", (e)=>{
 
-    form.addEventListener('submit', (e) => {
+    let ventas  = document.querySelector("#ventas")
+    let res = document.querySelector("#resultado")
+    let vent1 = document.querySelector("#venta1")
+    let vent2 = document.querySelector("#venta2")
+    let vent3 = document.querySelector("#venta3")
+    let ventane = document.querySelector("dialog")
+    let Close = document.querySelector("#close")
+    let sueldoBase = 475800
+    
+    
+    ventas.addEventListener("submit", (e)=>{
         e.preventDefault();
-        let datosp = Object.fromEntries(new FormData(e.target));
-        for (let i = 1; i < datosp.n; s++) {
-            if (datosp.n % i == 0) {
-                suma += i
-
-            }
-        }
-        if (datosp.N == suma) {
-            resultado = "Es perfecto :)"
-            suma = 0
-        }
-        else {
-            resultado = "No es perfecto :("
-            suma = 0
-        }
-
-        sobr.innerHTML = ""
-        sobr.insertAdjacentHTML("beforeend", `<h2> ${datosp.N + ' ' + resultado} </h2>`);
+        let dataInput = Object.fromEntries(new FormData(e.target))
+        let comision1 = Number(dataInput.venta1)*0.10
+        let comision2 = Number(dataInput.venta2)*0.10
+        let comision3 = Number(dataInput.venta3)*0.10
+        let comision = comision1 + comision2 + comision3
+        let totalcomision = sueldoBase + comision
+        res.innerHTML = totalcomision
+    
+            ventane.showModal();
+            let mytabla = document.querySelector('tbody');
+            mytabla.innerHTML = ""
+            mytabla.insertAdjacentHTML('beforeend',`
+            <tr>
+                <td>${dataInput.venta1}</td>
+                <td>${dataInput.venta2}</td>
+                <td>${dataInput.venta3}</td>
+                <td>${sueldoBase}</td>
+                <td>${totalcomision}</td>
+            </tr>
+            `)
+    
+        })
+    
+        Close.addEventListener("click", (e)=>{
+            ventane.close();
+        })
+    
+    
     })
-
-})
